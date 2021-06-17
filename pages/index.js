@@ -69,7 +69,7 @@ export default function Home() {
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <Header />
-                <div className="mt-1 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible ">
+                <div className="mt-1 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible">
                     {width <= 580 ? (
                         <Carousel showThumbs={false} autoPlay={true} showArrows={false} infiniteLoop={true} showStatus={false}>
                             {chunked.length &&
@@ -101,7 +101,7 @@ export default function Home() {
                     )}
                     {console.log(posts)}
                 </div>
-                <div className="pt-5 absolute bottom-0 w-full">
+                <div className="pt-5  bottom-0 w-full">
                     <Input setcount={setCount} />
                 </div>
             </div>

@@ -37,7 +37,7 @@ const Input = ({ setcount }) => {
     };
     return (
         <div className="w-full mb-3">
-            <div className="flex justify-center pt-20">
+            <div className="flex justify-center pt-10">
                 <div className=" lg:w-3/5 w-11/12 flex justify-center bg-gray-200 p-2 rounded-md h-28">
                     {/* <input type="text" className="w-3/5" onChange={(e) => onChange(e)} value={post} maxLength="200" /> */}
                     <TextField label="Post" variant="outlined" multiline rows={3} className="w-4/5 h-20" onChange={(e) => onChange(e)} value={post} inputProps={{ maxLength: 150 }} />
