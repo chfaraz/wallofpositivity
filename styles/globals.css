@@ -124,7 +124,7 @@ a {
             'j k l'
             'm n o';
     }
-    @media only screen and (max-width: 860px) {
+    /* @media only screen and (max-width: 860px) {
         .main {
             grid-template-columns: 1fr 1fr;
             grid-template-areas:
@@ -137,17 +137,17 @@ a {
                 'm n'
                 'o .';
         }
+    } */
+}
+@media only screen and (max-width: 768px) {
+    .main {
+        grid-template-columns: 98%;
+        grid-template-rows: 75%;
+        grid-template-areas: 'a';
+        overflow: scroll;
     }
-    @media only screen and (max-width: 600px) {
-        .main {
-            grid-template-columns: 98%;
-            grid-template-rows: 75%;
-            grid-template-areas: 'a';
-            overflow: scroll;
-        }
-        .axis-vertical {
-            height: 600px !important;
-        }
+    .axis-vertical {
+        height: 600px !important;
     }
 }
 /* 'e'
