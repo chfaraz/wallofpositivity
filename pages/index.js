@@ -17,7 +17,7 @@ export default function Home() {
     const [mobilePosition, setMobilePosition] = useState([]);
 
     const [rotate, setRotate] = useState(['rotate-1', 'rotate-2', 'rotate-3', 'rotate-6', 'rotate-12', 'rotate-12', '-rotate-12', '-rotate-12', '-rotate-6', '-rotate-3', '-rotate-2', '-rotate-1']);
-    const [color, setColor] = useState(['#D50000', '#C51162', '#AA00FF', '#6200EA', '#304FFE', '#0091EA', '#00B8D4', '#00BFA5', '#00C853', '#64DD17', '#FFD600', '#FFAB00', '#FF6D00', '#DD2C00', '#6D4C41', '#757575', '#263238', '#78909C']);
+    const [color, setColor] = useState(['red', 'green', 'blue', 'purple', 'black']);
 
     const [chunked, setChunked] = useState([]);
     useEffect(async () => {
@@ -33,7 +33,10 @@ export default function Home() {
         }
         shuffleArray(position);
 
-        document.body.style.backgroundColor = color[background];
+        // document.body.style.backgroundColor = color[background];
+        // if(document.readyState){
+        //     document.getElementById('message').style.color = color[background];
+        // }
         const res = await fetch(`/api/post`);
         const data = await res.json();
         shuffleArray(data);
@@ -69,7 +72,7 @@ export default function Home() {
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <Header />
-                <div className="mt-1 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible ">
+                <div className="pt-24 lg:pt-36 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible ">
                     {width <= 768 ? (
                         <Carousel showThumbs={false} autoPlay={true} showArrows={false} infiniteLoop={true} showStatus={false}>
                             {chunked.length &&
@@ -79,7 +82,7 @@ export default function Home() {
                                             {post.length &&
                                                 post.map((onePost, index) => {
                                                     return (
-                                                        <p key={onePost._id} className={`bg-white text-black my-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 4)]} ${fontWeight[Math.round(Math.random() * 5)]}`}>
+                                                        <p  key={onePost._id} className={`bg-white ${color[Math.round(Math.random() * 4)]} my-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 4)]} ${fontWeight[Math.round(Math.random() * 5)]}`}>
                                                             {onePost.post}
                                                         </p>
                                                     );
@@ -93,7 +96,7 @@ export default function Home() {
                         posts.map((post, index) => {
                             return (
                                 <div style={{ gridArea: position[index] }} key={post._id}>
-                                    <p className={`bg-white text-black mt-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 5)]} ${fontWeight[Math.round(Math.random() * 4)]} transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none message`}>{post.post}</p>
+                                    <p className={`bg-white ${color[Math.round(Math.random() * 4)]} mt-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 5)]} ${fontWeight[Math.round(Math.random() * 4)]} transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none message`}>{post.post}</p>
                                 </div>
                                 // font-${fonts[Math.round(Math.random() * 5)]}
                             );

@@ -102,7 +102,21 @@ a {
     animation-duration: 3s;
     animation-timing-function: ease-in-out;
 }
-
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}
+.blue{
+    color: blue;
+}
+.purple{
+    color: purple;
+}
+.black{
+    color: black;
+}
 @keyframes example {
     0% {
         transform: scale(1);
