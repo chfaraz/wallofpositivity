@@ -11,9 +11,9 @@ export default function Home() {
     const [width, setWidth] = useState(0);
     const [posts, setPosts] = useState([]);
     const [fonts, setFonts] = useState(['Dancing', 'Lobster', 'Noto', 'Roboto', 'ZCOOL']);
-    const [fontWeight, setfontWeight] = useState(['base', 'sm', 'lg', 'xl', 'xl2', 'xl3']);
-    const [mt, setMt] = useState([1, 20, 4, 4, 8, 6, 7, 2, 9, 10, 12, 14, 16, 20]);
-    const [position, setposition] = useState(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o']);
+    const [fontWeight, setfontWeight] = useState(['base', 'sm', 'lg', 'xl', 'xl2']);
+    const [mt, setMt] = useState([1, 20, 4, 4, 8, 6, 7, 2, 9, 10, 12, 14, 16]);
+    const [position, setposition] = useState(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k']);
     const [mobilePosition, setMobilePosition] = useState([]);
 
     const [rotate, setRotate] = useState(['rotate-1', 'rotate-2', 'rotate-3', 'rotate-6', 'rotate-12', 'rotate-12', '-rotate-12', '-rotate-12', '-rotate-6', '-rotate-3', '-rotate-2', '-rotate-1']);
@@ -41,7 +41,8 @@ export default function Home() {
         const data = await res.json();
         shuffleArray(data);
         console.log(data);
-        setPosts(data);
+
+        setPosts(data.slice(0,12));
         if (window.innerWidth <= 768) {
             const result = new Array(Math.ceil(data.length / 4)).fill().map((_) => data.splice(0, 4));
             setChunked(result);
@@ -72,7 +73,7 @@ export default function Home() {
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <Header />
-                <div className="pt-24 lg:pt-36 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible ">
+                <div className="pt-24 lg:pt-36 w-full px-0 md:px-8 h-3/4 main overflow-y-scroll md:overflow-y-visible ">
                     {width <= 768 ? (
                         <Carousel showThumbs={false} autoPlay={true} showArrows={false} infiniteLoop={true} showStatus={false}>
                             {chunked.length &&
@@ -82,7 +83,7 @@ export default function Home() {
                                             {post.length &&
                                                 post.map((onePost, index) => {
                                                     return (
-                                                        <p  key={onePost._id} className={`bg-white ${color[Math.round(Math.random() * 4)]} my-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 4)]} ${fontWeight[Math.round(Math.random() * 5)]}`}>
+                                                        <p  key={onePost._id} className={`my-8 mx-5 ml-8 bg-white ${color[Math.round(Math.random() * 4)]} post max-w-20 transform min-h-8 bg-white p-3 rounded-md ${fonts[1]} ${fontWeight[Math.round(Math.random() * 4)]}`}>
                                                             {onePost.post}
                                                         </p>
                                                     );
@@ -95,8 +96,8 @@ export default function Home() {
                         posts.length &&
                         posts.map((post, index) => {
                             return (
-                                <div style={{ gridArea: position[index] }} key={post._id}>
-                                    <p className={`bg-white ${color[Math.round(Math.random() * 4)]} mt-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 5)]} ${fontWeight[Math.round(Math.random() * 4)]} transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none message`}>{post.post}</p>
+                                <div style={{ gridArea: position[index], background:"white" }} className={`flex items-center justify-center post transform rounded-md transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`} key={post._id}>
+                                    <p className={`bg-white ${color[Math.round(Math.random() * 4)]}  max-w-20  min-h-8 bg-white p-3 rounded-md text-center ${fonts[1]} ${fontWeight[4]}  message`}>{post.post}</p>
                                 </div>
                                 // font-${fonts[Math.round(Math.random() * 5)]}
                             );
@@ -104,8 +105,24 @@ export default function Home() {
                     )}
                     {console.log(posts)}
                 </div>
-                <div className="pt-5 absolute bottom-0 w-full">
+                <div className="pb-2 absolute md:flex flex-col bottom-0 w-full">
                     <Input setcount={setCount} />
+                    <div className="md:flex flex-col2 absolute md:right-32 right-10 md:bottom-8 bottom-24 justify-between mt-3 lg:mt-5">
+                    <a href="https://www.instagram.com/wall_of_positivity/">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <rect x="4" y="4" width="16" height="16" rx="4" />
+                            <circle cx="12" cy="12" r="3" />
+                            <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/wopty.wall.of.positivity" className="ml-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+                        </svg>
+                    </a>
+            </div>
                 </div>
             </div>
         </div>

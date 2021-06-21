@@ -36,17 +36,17 @@ const Input = ({ setcount }) => {
         setPost(post + emoji.native);
     };
     return (
-        <div className="w-full mb-3 absolute bottom-0">
+        <div className="w-full mb-2 bottom-0">
             <div className="flex justify-center pt-10">
-                <div className=" lg:w-3/5 w-11/12 flex justify-center bg-gray-200 p-2 rounded-md h-28">
+                <div className=" lg:w-3/5 w-11/12 flex justify-center input-back p-2 rounded-md">
                     {/* <input type="text" className="w-3/5" onChange={(e) => onChange(e)} value={post} maxLength="200" /> */}
-                    <TextField label="Post" variant="outlined" multiline rows={3} className="w-4/5 h-20" onChange={(e) => onChange(e)} value={post} inputProps={{ maxLength: 150 }} />
+                    <TextField label="Post" variant="outlined" className="w-4/5" onChange={(e) => onChange(e)} value={post} inputProps={{ maxLength: 150 }} />
 
-                    <button className={`lg:px-8 px-3 lg:py-2 bg-black font-bold text-white ml-5 rounded-md ${posting ? 'animate-pulse' : ''}`} onClick={postData}>
+                    <button className={`lg:px-8 px-3 bg-black font-bold text-white ml-5 rounded-md ${posting ? 'animate-pulse' : ''}`} onClick={postData}>
                         Send
                     </button>
                     <button
-                        className={`ml-3 py-2 rounded-md `}
+                        className={`ml-3 rounded-md `}
                         onClick={() => {
                             setPicker(!picker);
                         }}
