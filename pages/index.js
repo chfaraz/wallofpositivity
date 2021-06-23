@@ -2,11 +2,14 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import Header from '../components/header';
 import Input from '../components/input';
+import Popups from '../components/popup';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import BackgroundSlider from 'react-background-slider';
 
 export default function Home() {
+    const [popup, setPopup] = useState(false);
+    const [postData, setPostData] = useState(0);
     const [count, setcount] = useState(0);
     const [width, setWidth] = useState(0);
     const [posts, setPosts] = useState([]);
@@ -63,6 +66,14 @@ export default function Home() {
 
     console.log(mobilePosition);
     //bg-bg${Math.round(Math.random() * 3)}
+    const showPopup=(data)=>{
+        setPostData(data);
+        setPopup(true);
+    }
+    const closePopup=()=>{
+        setPopup(false);
+    }
+
     return (
         <div className="relative min-h-screen">
             <BackgroundSlider images={['1.jpeg', '2.jpg', '3.jpg']} duration={10} transition={2} />
@@ -73,6 +84,7 @@ export default function Home() {
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <Header />
+                {popup?<Popups closePopup={closePopup}>{postData}</Popups>:null}
                 <div className="pt-24 lg:pt-36 w-full px-0 md:px-8 h-3/4 main overflow-y-scroll md:overflow-y-visible ">
                     {width <= 768 ? (
                         <Carousel showThumbs={false} autoPlay={true} showArrows={false} infiniteLoop={true} showStatus={false}>
@@ -83,7 +95,7 @@ export default function Home() {
                                             {post.length &&
                                                 post.map((onePost, index) => {
                                                     return (
-                                                        <p  key={onePost._id} className={`my-8 mx-5 ml-8 bg-white ${color[Math.round(Math.random() * 4)]} post max-w-20 transform min-h-8 bg-white p-3 rounded-md ${fonts[1]} ${fontWeight[Math.round(Math.random() * 4)]}`}>
+                                                        <p  key={onePost._id} className={`opacity-60 my-8 mx-5 ml-8 bg-white ${color[Math.round(Math.random() * 4)]} post text-overflow max-w-20 transform min-h-8 bg-white p-3 rounded-md ${fonts[1]} ${fontWeight[Math.round(Math.random() * 4)]}`} onClick={()=>showPopup(onePost.post)} >
                                                             {onePost.post}
                                                         </p>
                                                     );
@@ -96,8 +108,8 @@ export default function Home() {
                         posts.length &&
                         posts.map((post, index) => {
                             return (
-                                <div style={{ gridArea: position[index], background:"white" }} className={`flex items-center justify-center post transform rounded-md transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`} key={post._id}>
-                                    <p className={`bg-white ${color[Math.round(Math.random() * 4)]}  max-w-20  min-h-8 bg-white p-3 rounded-md text-center ${fonts[1]} ${fontWeight[4]}  message`}>{post.post}</p>
+                                <div style={{ gridArea: position[index], background:"white" }} className={`opacity-60 flex items-center justify-center post transform rounded-md transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`} key={post._id}>
+                                    <p className={`opacity-100 bg-white ${color[Math.round(Math.random() * 4)]}  max-w-20  min-h-8 bg-white p-3 rounded-md text-center ${fonts[1]} ${fontWeight[4]}  message`}>{post.post}</p>
                                 </div>
                                 // font-${fonts[Math.round(Math.random() * 5)]}
                             );

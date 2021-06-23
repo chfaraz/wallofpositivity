@@ -55,6 +55,11 @@ a {
 .xl2 {
     font-size: 24px;
 }
+.text-overflow{
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .post::before {
     content: '';
     left: 20px;
