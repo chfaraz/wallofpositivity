@@ -85,7 +85,7 @@ export default function Home() {
                 </Head>
                 <Header />
                 {popup?<Popups closePopup={closePopup}>{postData}</Popups>:null}
-                <div className="pt-24 lg:pt-36 w-full px-0 md:px-8 h-3/4 main overflow-y-scroll md:overflow-y-visible ">
+                <div className="pt-24 xl:pt-36 w-full px-0 md:px-8 h-3/4 main overflow-y-scroll md:overflow-y-visible ">
                     {width <= 768 ? (
                         <Carousel showThumbs={false} autoPlay={true} showArrows={false} infiniteLoop={true} showStatus={false}>
                             {chunked.length &&
@@ -95,7 +95,7 @@ export default function Home() {
                                             {post.length &&
                                                 post.map((onePost, index) => {
                                                     return (
-                                                        <p  key={onePost._id} className={`opacity-60 my-8 mx-5 ml-8 bg-white ${color[Math.round(Math.random() * 4)]} post text-overflow max-w-20 transform min-h-8 bg-white p-3 rounded-md ${fonts[1]} ${fontWeight[Math.round(Math.random() * 4)]}`} onClick={()=>showPopup(onePost.post)} >
+                                                        <p  key={onePost._id} className={`opacity-60 my-8 mx-5 ml-8 bg-white ${color[Math.round(Math.random() * 4)]} post text-overflow max-w-20 transform min-h-8 bg-white p-3 rounded-md ${fonts[1]} ${fontWeight[4]}`} onClick={()=>showPopup(onePost.post)} >
                                                             {onePost.post}
                                                         </p>
                                                     );
@@ -117,9 +117,16 @@ export default function Home() {
                     )}
                     {console.log(posts)}
                 </div>
-                <div className="pb-2 absolute md:flex flex-col bottom-0 w-full">
+                <div className="pb-2 absolute lg:flex flex-col bottom-0 w-full">
                     <Input setcount={setCount} />
-                    <div className="md:flex flex-col2 absolute md:right-32 right-10 md:bottom-8 bottom-24 justify-between mt-3 lg:mt-5">
+                    <div className="flex flex-col2 absolute lg:right-32 right-10 lg:bottom-8 bottom-24 justify-between mt-3 lg:mt-5">
+                    <a href="https://www.facebook.com/wopty.wall.of.positivity" className="ml-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+                        </svg>
+                    </a>
+                  
                     <a href="https://www.instagram.com/wall_of_positivity/">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -128,12 +135,7 @@ export default function Home() {
                             <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
                         </svg>
                     </a>
-                    <a href="https://www.facebook.com/wopty.wall.of.positivity" className="ml-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
-                        </svg>
-                    </a>
+                  
             </div>
                 </div>
             </div>
