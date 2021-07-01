@@ -73,7 +73,7 @@ export default function Home() {
     const closePopup=()=>{
         setPopup(false);
     }
-
+//sdsd  dsa
     return (
         <div className="relative min-h-screen">
             <BackgroundSlider images={['1.jpeg', '2.jpg', '3.jpg']} duration={10} transition={2} />
