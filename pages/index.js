@@ -87,7 +87,7 @@ export default function Home() {
                 {popup?<Popups closePopup={closePopup}>{postData}</Popups>:null}
                 <div className="pt-24 xl:pt-36 w-full px-0 md:px-8 h-3/4 main overflow-y-scroll md:overflow-y-visible ">
                     {width <= 768 ? (
-                        <Carousel showThumbs={false} autoPlay={true} showArrows={false} infiniteLoop={true} showStatus={false}>
+                        <Carousel showThumbs={false} autoPlay={true} interval={6000} showArrows={false} infiniteLoop={true} showStatus={false}>
                             {chunked.length &&
                                 chunked.map((post, index) => {
                                     return (
