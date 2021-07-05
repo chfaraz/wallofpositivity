@@ -43,7 +43,7 @@ const Input = ({ setcount }) => {
                     <TextField label="Post" variant="outlined" className="w-4/5" onChange={(e) => onChange(e)} value={post} inputProps={{ maxLength: 150 }} />
 
                     <button className={`lg:px-8 px-3 bg-black font-bold text-white ml-5 rounded-md ${posting ? 'animate-pulse' : ''}`} onClick={postData}>
-                        Send
+                        Post
                     </button>
                     <button
                         className={`ml-3 rounded-md `}
@@ -61,7 +61,7 @@ const Input = ({ setcount }) => {
                     </button>
                 </div>
             </div>
-            <div className="absolute bottom-24 lg:inset-x-2/3 inset-x-24">
+            <div className="absolute bottom-24 lg:inset-x-2/3 sm:inset-x-24 inset-x-6">
                 {picker ? (
                     <>
                         <Picker set="apple" onSelect={addEmoji} />
