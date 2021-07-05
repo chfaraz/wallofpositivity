@@ -81,7 +81,7 @@ export default function Home() {
                 <Head>
                     <title>Wall Of Positivity</title>
                     <meta name="description" content="wall-of-positivity" />
-                    <link rel="icon" href="/favicon.ico" />
+                    <link rel="icon" href="/favicon.png" />
                 </Head>
                 <Header />
                 {popup?<Popups closePopup={closePopup}>{postData}</Popups>:null}
