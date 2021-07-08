@@ -75,9 +75,9 @@ export default function Home() {
     }
 //sdsd  dsa
     return (
-        <div className="relative min-h-screen">
+        <div className="relative">
             <BackgroundSlider images={['1.jpeg', '2.jpg', '3.jpg']} duration={10} transition={2} />
-            <div className={`pb-10  bg-blend-overlay bg-cover bg-opacity-60 bg-black min-h-screen`}>
+            <div className={` bg-blend-overlay bg-cover bg-opacity-60 bg-black min-h-screen`}>
                 <Head>
                     <title>Wall Of Positivity</title>
                     <meta name="description" content="wall-of-positivity" />
@@ -117,7 +117,7 @@ export default function Home() {
                     )}
                     {console.log(posts)}
                 </div>
-                <div className="pb-2 absolute lg:flex flex-col bottom-0 w-full">
+                <div className="pb-2 absolute lg:flex flex-col bottom-0 md:bottom-0  w-full">
                     <Input setcount={setCount} />
                     <div className="flex flex-col2 absolute lg:right-32 right-10 lg:bottom-8 bottom-24 justify-between mt-3 lg:mt-5">
                     <a href="https://www.facebook.com/wopty.wall.of.positivity" className="ml-3">
