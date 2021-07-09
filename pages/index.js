@@ -105,7 +105,7 @@ export default function Home() {
                                 })}
                         </Carousel>
                     ) : (
-                        posts.length &&
+                        
                         posts.map((post, index) => {
                             return (
                                 <div style={{ gridArea: position[index], background:"white" }} className={`opacity-60 flex items-center justify-center post transform rounded-md transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`} key={post._id}>
